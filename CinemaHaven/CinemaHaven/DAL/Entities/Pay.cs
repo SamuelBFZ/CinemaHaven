@@ -12,10 +12,10 @@ namespace CinemaHaven.DAL.Entities
 
         [Display(Name = "Tipo de Pago")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public PaymentType Tipo { get; set; }
+        public PaymentType Type { get; set; }
 
         [Display(Name = "Plazo")]
-        public DateOnly? Plazo { get; set; }
+        public string Term { get; set; }
         #endregion
 
         #region Connections
@@ -24,6 +24,9 @@ namespace CinemaHaven.DAL.Entities
 
         public PaymentMethod PaymentMethod { get; set; }
         public Guid PaymentMethodId { get; set; }
+
+        public Bill Bill { get; set; }
+        public Guid BillId { get; set; }
 
         #endregion
     }

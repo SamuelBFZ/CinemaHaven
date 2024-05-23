@@ -36,7 +36,8 @@ namespace CinemaHaven.DAL
             modelBuilder.Entity<PaymentMethod>()
                 .HasMany(pm => pm.pays)
                 .WithOne(p => p.PaymentMethod)
-                .HasForeignKey(p => p.PaymentMethodId);
+                .HasForeignKey(p => p.PaymentMethodId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelBuilder);
         }
