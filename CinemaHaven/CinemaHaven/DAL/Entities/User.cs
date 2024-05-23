@@ -5,6 +5,7 @@ namespace CinemaHaven.DAL.Entities
 {
     public class User
     {
+        #region Attributes
         [Required]
         [Key]
         public virtual Guid Id { get; set; }
@@ -37,5 +38,12 @@ namespace CinemaHaven.DAL.Entities
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public UserRole UserRole { get; set; }
+        #endregion
+
+        #region Connections
+        public ICollection<Bill> bills { get; set; }
+
+        public ICollection<PaymentMethod> paymentMethods { get; set; }
+        #endregion
     }
 }

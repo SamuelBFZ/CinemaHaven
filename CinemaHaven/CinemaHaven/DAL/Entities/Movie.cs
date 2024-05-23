@@ -49,5 +49,9 @@ namespace CinemaHaven.DAL.Entities
         [MaxLength(50, ErrorMessage = "El campo {0} puede tener maximo {1} caracteres")]
         public float Rent { get; set; }
         #endregion
+
+        #region Connections
+        public ICollection<Pay> pays {  get; set; }
+        #endregion
     }
 }

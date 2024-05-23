@@ -4,6 +4,7 @@ namespace CinemaHaven.DAL.Entities
 {
     public class PaymentMethod
     {
+        #region Attribute
         [Required]
         [Key]
         public virtual Guid Id { get; set; }
@@ -37,5 +38,13 @@ namespace CinemaHaven.DAL.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [MaxLength(10, ErrorMessage = "El campo {0} puede tener como máximo {1} caracteres")]
         public string PostalCode { get; set; }
+        #endregion
+
+        #region Connections
+        public ICollection<Pay> pays { get; set; }
+
+        public User User { get; set; }
+        public Guid UserId { get; set; }
+        #endregion
     }
 }

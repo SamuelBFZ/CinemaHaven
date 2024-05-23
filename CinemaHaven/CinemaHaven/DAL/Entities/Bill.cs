@@ -5,6 +5,7 @@ namespace CinemaHaven.DAL.Entities
 {
     public class Bill
     {
+        #region Attributes
         [Required]
         [Key]
         public virtual Guid Id { get; set; }
@@ -16,5 +17,14 @@ namespace CinemaHaven.DAL.Entities
         public float Total { get; set; }
         public string Term { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
+        #endregion
+
+        #region Connections
+        public Pay Pay { get; set; }
+        public Guid PayId { get; set; }
+
+        public User User { get; set; }
+        public Guid UserId { get; set; }
+        #endregion
     }
 }
