@@ -19,14 +19,14 @@ namespace CinemaHaven.DAL.Entities
         #endregion
 
         #region Connections
-        public Movie Movie { get; set; }
-        public Guid MovieId { get; set; }
+        public Movie? Movie { get; set; }
+        public Guid? MovieId { get; set; }
 
-        public PaymentMethod PaymentMethod { get; set; }
-        public Guid PaymentMethodId { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
+        public Guid? PaymentMethodId { get; set; }
 
-        public Bill Bill { get; set; }
-        public Guid BillId { get; set; }
+        public Bill? Bill { get; set; }
+        public Guid? BillId { get; set; }
 
         #endregion
     }

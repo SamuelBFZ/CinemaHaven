@@ -21,8 +21,8 @@ namespace CinemaHaven.DAL.Entities
 
         #region Connections
 
-        public User User { get; set; }
-        public Guid UserId { get; set; }
+        public User? User { get; set; }
+        public Guid? UserId { get; set; }
         #endregion
     }
 }

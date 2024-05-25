@@ -15,12 +15,48 @@ namespace CinemaHaven.Domain.Services
             _context = context;
         }
 
+        public async Task<IEnumerable<Movie>> GetMoviesAsync()
+        {
+            var movie = await _context.Movies.ToListAsync();
+
+            return movie;
+        }
+
+        public async Task<Movie> GetMovieByIdAsync(Guid id)
+        {
+            try
+            {
+                var movie = await _context.Movies.FirstOrDefaultAsync(m => m.Id == id);
+
+                return movie;
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
+            }
+        }
+
         public async Task<Movie> CreateMovieAsync(Movie movie)
         {
             try
             {
                 _context.Movies.Add(movie);
                 await _context.SaveChangesAsync();
+                return movie;
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
+            }
+        }
+
+        public async Task<Movie> EditMovieAsync(Movie movie)
+        {
+            try
+            {
+                _context.Movies.Update(movie);
+                await _context.SaveChangesAsync();
+
                 return movie;
             }
             catch (DbUpdateException dbUpdateException)
@@ -48,40 +84,5 @@ namespace CinemaHaven.Domain.Services
             }
         }
 
-        public async Task<Movie> EditMovieAsync(Movie movie)
-        {
-            try
-            {
-                _context.Movies.Update(movie);
-                await _context.SaveChangesAsync();
-
-                return movie;
-            }
-            catch (DbUpdateException dbUpdateException)
-            {
-                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
-            }
-        }
-
-        public async Task<Movie> GetMovieByIdAsync(Guid id)
-        {
-            try
-            {
-                var movie = await _context.Movies.FirstOrDefaultAsync(m => m.Id == id);
-
-                return movie;
-            }
-            catch (DbUpdateException dbUpdateException)
-            {
-                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
-            }
-        }
-
-        public async Task<IEnumerable<Movie>> GetMoviesAsync()
-        {
-           var movie = await _context.Movies.ToListAsync();
-
-           return movie;
-        }
     }
 }

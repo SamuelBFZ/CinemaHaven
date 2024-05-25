@@ -1,4 +1,6 @@
 using CinemaHaven.DAL;
+using CinemaHaven.Domain.Interfaces;
+using CinemaHaven.Domain.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<DatabaseContext>(o =>
 {
     o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

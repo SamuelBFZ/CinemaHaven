@@ -41,9 +41,9 @@ namespace CinemaHaven.DAL.Entities
         #endregion
 
         #region Connections
-        public ICollection<Bill> bills { get; set; }
+        public ICollection<Bill>? bills { get; set; }
 
-        public ICollection<PaymentMethod> paymentMethods { get; set; }
+        public ICollection<PaymentMethod>? paymentMethods { get; set; }
         #endregion
     }
 }

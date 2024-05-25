@@ -5,12 +5,10 @@ namespace CinemaHaven.Domain.Interfaces
 {
     public interface IMovieService
     {
-        Task<IEnumerable<Movie>> GetMoviesAsync();//Firma de un metodo
-
+        Task<IEnumerable<Movie>> GetMoviesAsync();
         Task<Movie> GetMovieByIdAsync(Guid id);
         Task<Movie> CreateMovieAsync(Movie movie);
         Task<Movie> EditMovieAsync(Movie movie);
-
         Task<Movie> DeleteMovieAsync(Guid id);
     }
 }

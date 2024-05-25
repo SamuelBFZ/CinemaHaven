@@ -41,10 +41,10 @@ namespace CinemaHaven.DAL.Entities
         #endregion
 
         #region Connections
-        public ICollection<Pay> pays { get; set; }
+        public ICollection<Pay>? pays { get; set; }
 
-        public User User { get; set; }
-        public Guid UserId { get; set; }
+        public User? User { get; set; }
+        public Guid? UserId { get; set; }
         #endregion
     }
 }
