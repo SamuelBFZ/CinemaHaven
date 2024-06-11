@@ -15,6 +15,7 @@ builder.Services.AddDbContext<DatabaseContext>(o =>
 });
 
 builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IPayService, PayService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
