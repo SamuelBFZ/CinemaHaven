@@ -1,5 +1,6 @@
 ﻿using CinemaHaven.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CinemaHaven.DAL.Entities
 {
@@ -19,14 +20,13 @@ namespace CinemaHaven.DAL.Entities
         #endregion
 
         #region Connections
+        [JsonIgnore]
         public Movie? Movie { get; set; }
         public Guid? MovieId { get; set; }
 
+        [JsonIgnore]
         public PaymentMethod? PaymentMethod { get; set; }
         public Guid? PaymentMethodId { get; set; }
-
-        public Bill? Bill { get; set; }
-        public Guid? BillId { get; set; }
 
         #endregion
     }

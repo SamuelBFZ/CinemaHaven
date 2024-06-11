@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CinemaHaven.DAL.Entities
 {
@@ -36,22 +37,21 @@ namespace CinemaHaven.DAL.Entities
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Display(Name = "Estreno")]
-        [MaxLength(50, ErrorMessage = "El campo {0} puede tener maximo {1} caracteres")]
+        [MaxLength(50, ErrorMessage = "El campo {0} puede tener maximo {1} caracteres")]//DD/MM/YY
         public string Release { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Display(Name = "Precio compra")]
-        [MaxLength(50, ErrorMessage = "El campo {0} puede tener maximo {1} caracteres")]
         public float Buy { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Display(Name = "Precio Alquiler")]
-        [MaxLength(50, ErrorMessage = "El campo {0} puede tener maximo {1} caracteres")]
         public float Rent { get; set; }
         #endregion
 
         #region Connections
-        public ICollection<Pay>? pays {  get; set; }
+        [JsonIgnore]
+        public ICollection<Pay>? pays { get; set; }
         #endregion
     }
 }

@@ -40,8 +40,11 @@ namespace CinemaHaven.Domain.Services
         {
             try
             {
+                movie.Id = Guid.NewGuid();
                 _context.Movies.Add(movie);
+
                 await _context.SaveChangesAsync();
+
                 return movie;
             }
             catch (DbUpdateException dbUpdateException)
@@ -71,10 +74,13 @@ namespace CinemaHaven.Domain.Services
             {
                 var movie = await GetMovieByIdAsync(id);
 
-                if (movie != null)
+                if (movie == null)
                 {
                     return null;
                 }
+
+                _context.Movies.Remove(movie);
+                await _context.SaveChangesAsync();
 
                 return movie;
             }
