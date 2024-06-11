@@ -6,4 +6,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\..\CinemaHaven\DAL\Entities\Bill.cs" Link="Models\Bill.cs" />
+    <Compile Include="..\..\CinemaHaven\DAL\Entities\Movie.cs" Link="Models\Movie.cs" />
+    <Compile Include="..\..\CinemaHaven\DAL\Entities\Pay.cs" Link="Models\Pay.cs" />
+    <Compile Include="..\..\CinemaHaven\DAL\Entities\PaymentMethod.cs" Link="Models\PaymentMethod.cs" />
+    <Compile Include="..\..\CinemaHaven\DAL\Entities\User.cs" Link="Models\User.cs" />
+    <Compile Include="..\..\CinemaHaven\Enums\PaymentType.cs" Link="Enums\PaymentType.cs" />
+    <Compile Include="..\..\CinemaHaven\Enums\UserRole.cs" Link="Enums\UserRole.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
 </Project>
