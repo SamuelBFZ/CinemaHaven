@@ -9,13 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+//Conexion con la BD
 builder.Services.AddDbContext<DatabaseContext>(o =>
 {
     o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+//para poder utilizar nuestros controladores
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IPayService, PayService>();
+builder.Services.AddScoped<IPayMethodService, PayMethodService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
